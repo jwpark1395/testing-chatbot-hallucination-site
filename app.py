@@ -1,4 +1,7 @@
 import streamlit as st
+import json
+import random
+
 def wide_space_default():
     st.set_page_config(layout="wide")
     # Add custom CSS to hide the menu
@@ -30,6 +33,87 @@ if "page" not in st.session_state:
 if "agree" not in st.session_state:
     st.session_state.agree = False
 
+# Initialize confidence conditions
+if "confidence_conditions" not in st.session_state:
+    # Create a list of 10 repetitions of each condition
+    base_conditions = [0, 1, 2, 3, 4, 6, 7, 8] * 10
+    random.shuffle(base_conditions)
+    st.session_state.confidence_conditions = base_conditions
+    st.session_state.assigned_conditions = {}  # Dictionary to store PID -> condition mappings
+    st.session_state.total_assignments = 0
+
+def load_assigned_conditions():
+    """Load existing condition assignments"""
+    try:
+        with open('assigned_conditions.json', 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
+
+def save_assigned_conditions(assigned_conditions):
+    """Save condition assignments"""
+    with open('assigned_conditions.json', 'w') as f:
+        json.dump(assigned_conditions, f)
+
+def load_available_conditions():
+    """Load or create available conditions"""
+    try:
+        with open('available_conditions.json', 'r') as f:
+            state = json.load(f)
+    except FileNotFoundError:
+        base_conditions = [0, 1, 2, 3, 4, 6, 7, 8] * 10
+        random.shuffle(base_conditions)
+        state = {
+            'available_conditions': base_conditions,
+            'total_assignments': 0
+        }
+        save_available_conditions(state)
+    return state
+
+def save_available_conditions(state):
+    """Save available conditions state"""
+    with open('available_conditions.json', 'w') as f:
+        json.dump(state, f)
+
+def get_confidence_condition(prolific_pid):
+    if prolific_pid is None:
+        return 0  # Default condition for testing/debugging
+    
+    # First check if this user already has an assigned condition
+    assigned_conditions = load_assigned_conditions()
+    if prolific_pid in assigned_conditions:
+        return assigned_conditions[prolific_pid]
+    
+    # If not, get state of available conditions
+    state = load_available_conditions()
+    
+    # Reset conditions list if we've assigned 90 conditions
+    if state['total_assignments'] % 90 == 0 and state['total_assignments'] > 0:
+        base_conditions = [0, 1, 2, 3, 4, 6, 7, 8] * 10
+        random.shuffle(base_conditions)
+        state['available_conditions'] = base_conditions
+    
+    # Assign new condition
+    try:
+        condition = state['available_conditions'].pop()
+        state['total_assignments'] += 1
+        
+        # Save the assignment both to assigned conditions and available conditions state
+        assigned_conditions[prolific_pid] = condition
+        save_assigned_conditions(assigned_conditions)
+        save_available_conditions(state)
+        
+        return condition
+    except IndexError:
+        # If we somehow run out of conditions, reset the list
+        base_conditions = [0, 1, 2, 3, 4, 6, 7, 8] * 10
+        random.shuffle(base_conditions)
+        state['available_conditions'] = base_conditions
+        condition = state['available_conditions'].pop()
+        assigned_conditions[prolific_pid] = condition
+        save_assigned_conditions(assigned_conditions)
+        save_available_conditions(state)
+        return condition
 
 # Function to handle page changes
 def next_page():
@@ -52,6 +136,38 @@ def check_response_is_not_none(check_page=["survey_page_1", "survey_page_2", "su
     else:
         return True
 
+def display_debug_info():
+    """Display debug information in the sidebar"""
+    with st.sidebar:
+        st.markdown("### Debug Information")
+        
+        # Current user info
+        st.markdown("#### Current User")
+        st.write(f"Prolific ID: {st.session_state.responses.get('PROLIFIC_PID', 'None')}")
+        st.write(f"Confidence Condition: {st.session_state.responses.get('confidence_condition', 'None')}")
+        st.write(f"Current Page: {st.session_state.pages_name[st.session_state.page]}")
+        
+        # Load and display all assignments
+        st.markdown("#### All Assigned Conditions")
+        try:
+            with open('assigned_conditions.json', 'r') as f:
+                assigned = json.load(f)
+                st.json(assigned)
+        except FileNotFoundError:
+            st.write("No assigned conditions file found")
+        
+        # Available conditions info
+        st.markdown("#### Available Conditions State")
+        try:
+            with open('available_conditions.json', 'r') as f:
+                available = json.load(f)
+                st.write(f"Total Assignments: {available['total_assignments']}")
+                st.write(f"Remaining Conditions: {len(available['available_conditions'])}")
+                st.write("Available Conditions:")
+                st.json(available['available_conditions'])
+        except FileNotFoundError:
+            st.write("No available conditions file found")
+
 # Main function to control the flow
 def main():
     pages = [intro_page, consent_page, thanks_page, 
@@ -69,12 +185,17 @@ def main():
         st.session_state.responses = {}
         query_params = st.query_params
         if "PROLIFIC_PID" in query_params:
-            st.session_state.responses["PROLIFIC_PID"] = query_params["PROLIFIC_PID"]
+            prolific_pid = query_params["PROLIFIC_PID"]
+            st.session_state.responses["PROLIFIC_PID"] = prolific_pid
+            # Assign confidence condition
+            st.session_state.confidence_condition = get_confidence_condition(prolific_pid)
         else:
             st.session_state.responses["PROLIFIC_PID"] = None
-    # Display PROLIFIC_PID in sidebar for debugging
-    with st.sidebar:
-        st.write("PROLIFIC_PID:", st.session_state.responses.get("PROLIFIC_PID", "Not found"))
+            st.session_state.confidence_condition = random.randint(0, 8)
+    
+    # Display debug information
+    display_debug_info()
+    
     # Display the current page
     pages[st.session_state.page]()
     col1, _, _, _, col2 = st.columns(5)
