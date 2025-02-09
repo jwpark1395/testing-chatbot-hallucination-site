@@ -194,7 +194,7 @@ def main():
             st.session_state.confidence_condition = random.randint(0, 8)
     
     # Display debug information
-    # display_debug_info()
+    display_debug_info()
     
     # Display the current page
     pages[st.session_state.page]()
