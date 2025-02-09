@@ -61,7 +61,7 @@ def load_available_conditions():
         with open('available_conditions.json', 'r') as f:
             state = json.load(f)
     except FileNotFoundError:
-        base_conditions = [0, 1, 2, 3, 4, 6, 7, 8] * 10
+        base_conditions = [0, 1, 2, 3, 4, 5, 6, 7, 8] * 10  # Now includes 5
         random.shuffle(base_conditions)
         state = {
             'available_conditions': base_conditions,
@@ -89,7 +89,7 @@ def get_confidence_condition(prolific_pid):
     
     # Reset conditions list if we've assigned 90 conditions
     if state['total_assignments'] % 90 == 0 and state['total_assignments'] > 0:
-        base_conditions = [0, 1, 2, 3, 4, 6, 7, 8] * 10
+        base_conditions = [0, 1, 2, 3, 4, 5, 6, 7, 8] * 10  # Now includes 5
         random.shuffle(base_conditions)
         state['available_conditions'] = base_conditions
     
@@ -106,7 +106,7 @@ def get_confidence_condition(prolific_pid):
         return condition
     except IndexError:
         # If we somehow run out of conditions, reset the list
-        base_conditions = [0, 1, 2, 3, 4, 6, 7, 8] * 10
+        base_conditions = [0, 1, 2, 3, 4, 5, 6, 7, 8] * 10  # Now includes 5
         random.shuffle(base_conditions)
         state['available_conditions'] = base_conditions
         condition = state['available_conditions'].pop()
