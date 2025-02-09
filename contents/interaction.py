@@ -21,6 +21,7 @@ def select_random_condition():
                   8: 1 * ["fairly"] + 11 * ["quite"] + 1 * ["highly"],
                   }
     idx = st.session_state.confidence_condition
+
     condition = conditions[idx]
     random.shuffle(condition)
     if idx > 0:

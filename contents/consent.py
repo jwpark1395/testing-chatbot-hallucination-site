@@ -99,7 +99,7 @@ E-mail: irb@snu.ac.kr
     st.write(consent_text)
     
     
-    consent = st.radio("**Do you agree to the terms outlined above and wish to participate in the study?**", ["Agree", "Disagree"], index=1)
+    consent = st.radio("**Do you agree to the terms outlined above and wish to participate in the study?**", ["Agree", "Disagree"], index=None)
     
     if consent == "Agree":
         st.session_state["agree"] = True

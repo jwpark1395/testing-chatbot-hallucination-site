@@ -175,22 +175,24 @@ def debrief():
     st.write("""
 Thank you very much for participating in this study.
 
-The research title presented to you before the study, “User perceptions of generative AI chatbots” was a false title used to ensure the reliability of the study. The actual purpose of this study is to understand how users respond to a chatbot’s expressions of certainty or uncertainty regarding inaccurate information. We used a false title, because revealing the true purpose of the study beforehand could have influenced your answers.
+The research title presented to you before the study, "User perceptions of generative AI chatbots" was a false title used to ensure the reliability of the study. The actual purpose of this study is to understand how users respond to a chatbot's expressions of certainty or uncertainty regarding inaccurate information. We used a false title, because revealing the true purpose of the study beforehand could have influenced your answers.
 
-The chatbot you interacted with during the study was a simulated program created specifically for this experiment. Please note that all of the chatbot’s responses were intentionally false and inaccurate.
+The chatbot you interacted with during the study was a simulated program created specifically for this experiment. Please note that all of the chatbot's responses were intentionally false and inaccurate.
 
-You are free to withdraw from this study at any time. If you choose to withdraw, your data will be permanently deleted. If you don’t want your responses to be used in the study, please contact us at jwp14812@snu.ac.kr. However, please be aware that in such cases, payment will not be provided.
+You are free to withdraw from this study at any time. If you choose to withdraw, your data will be permanently deleted. If you don't want your responses to be used in the study, please contact us at jwp14812@snu.ac.kr. However, please be aware that in such cases, payment will not be provided.
 
 Once again, thank you for your participation. 
     """)
-    consent = st.radio("Do you agree to submit your response?", ["Agree", "Disagree"], index=1)
+    consent = st.radio("Do you agree to submit your response?", ["Agree", "Disagree"], index=None, key="consent_radio")
     
     if consent == "Agree":
-        if st.button("Submit"):
-            save_results()
+        submit_button = st.button("Submit")
+        if submit_button:
             st.session_state.submission_consent = True
-    if consent == "Disagree":
-        if st.button("Next"):
+            save_results()
+    elif consent == "Disagree":
+        next_button = st.button("Next")
+        if next_button:
             st.session_state.page += 1
             st.session_state.submission_consent = False
 
@@ -213,7 +215,8 @@ def save_results():
 
 
     # Call the function to send email
-    send_results_email(data_to_save, "jwp14812@snu.ac.kr")
+    # send_results_email(data_to_save, "jwp14812@snu.ac.kr")
+    send_results_email(data_to_save, "sungwonhwang95@gmail.com")
 
 
 
@@ -226,12 +229,12 @@ def closing_page():
         st.write("Thank you for participating in this study.")
         st.write("Please click the link below to return to Prolific and complete your participation.")
         st.markdown("[https://app.prolific.com/submissions/complete?cc=C12E2UJG](https://app.prolific.com/submissions/complete?cc=C12E2UJG)")
-        st.stop()
+        # st.stop()
     else:
         st.write("Thank you for participating in this study. Your responses will not be submitted.")
         st.write("Please click the link below to exit the study.")
         st.markdown("[https://app.prolific.com/submissions/complete?cc=C1MT56Z4](https://app.prolific.com/submissions/complete?cc=C1MT56Z4)")
-        st.stop()
+        # st.stop()
 
 def send_results_email(data_df, recipient_email):
     # Convert DataFrame to CSV string
