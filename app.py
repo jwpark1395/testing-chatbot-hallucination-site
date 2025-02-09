@@ -144,7 +144,7 @@ def display_debug_info():
         # Current user info
         st.markdown("#### Current User")
         st.write(f"Prolific ID: {st.session_state.responses.get('PROLIFIC_PID', 'None')}")
-        st.write(f"Confidence Condition: {st.session_state.responses.get('confidence_condition', 'None')}")
+        st.write(f"Confidence Condition: {st.session_state.get('confidence_condition', 'None')}")
         st.write(f"Current Page: {st.session_state.pages_name[st.session_state.page]}")
         
         # Load and display all assignments
