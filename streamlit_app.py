@@ -143,10 +143,11 @@ def display_debug_info():
         
         # Current user info
         st.markdown("#### Current User")
-        st.write(f"Prolific ID: {st.session_state.responses.get('PROLIFIC_PID', 'None')}")
-        st.write(f"Confidence Condition: {st.session_state.get('confidence_condition', 'None')}")
+        st.write(f"Prolific ID: {st.session_state.prolific_pid}")
+        st.write(f"Confidence Condition: {st.session_state.confidence_condition}")
         st.write(f"Current Page: {st.session_state.pages_name[st.session_state.page]}")
         
+
         # Load and display all assignments
         st.markdown("#### All Assigned Conditions")
         try:
@@ -174,6 +175,7 @@ def main():
              survey_page_1, survey_page_2, survey_page_3_intro, survey_page_3, survey_page_4, 
              interaction_intro, interaction_page,
              post_intro, post_page_1, post_page_2, post_page_3, post_page_4, debrief, closing_page]
+
     st.session_state.pages_name = [f.__name__ for f in pages]
     if "interaction_done" not in st.session_state:
         st.session_state.interaction_done= False
@@ -186,15 +188,15 @@ def main():
         query_params = st.query_params
         if "PROLIFIC_PID" in query_params:
             prolific_pid = query_params["PROLIFIC_PID"]
-            st.session_state.responses["PROLIFIC_PID"] = prolific_pid
+            st.session_state.prolific_pid = prolific_pid
             # Assign confidence condition
             st.session_state.confidence_condition = get_confidence_condition(prolific_pid)
         else:
-            st.session_state.responses["PROLIFIC_PID"] = None
+            st.session_state.prolific_pid = None
             st.session_state.confidence_condition = random.randint(0, 8)
     
     # Display debug information
-    display_debug_info()
+    # display_debug_info()
     
     # Display the current page
     pages[st.session_state.page]()
