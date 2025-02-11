@@ -198,7 +198,8 @@ def main():
         st.session_state.responses["PROLIFIC_PID"] = st.session_state.prolific_pid
         st.session_state.responses["CONFIDENCE_CONDITION"] = st.session_state.confidence_condition
     # Display debug information
-    display_debug_info()
+    if "DEBUG" in st.query_params and st.query_params["DEBUG"] == "chatbotsnu123!":
+        display_debug_info()
     
     # Display the current page
     pages[st.session_state.page]()
