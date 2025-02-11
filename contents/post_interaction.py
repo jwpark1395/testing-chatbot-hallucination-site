@@ -247,7 +247,7 @@ def send_results_email(data_df, recipient_email):
     from email.mime.application import MIMEApplication
     
     msg = MIMEMultipart()
-    msg['Subject'] = 'Study Results Data'
+    msg['Subject'] = f'Study Results - PROLIFIC PID: {st.session_state.prolific_pid}'
     msg['From'] = st.secrets["EMAIL"]
     msg['To'] = recipient_email
     
@@ -257,10 +257,8 @@ def send_results_email(data_df, recipient_email):
     from datetime import datetime
     import uuid
     
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    unique_id = str(uuid.uuid4())[:8]
-    filename = f"study_results_{timestamp}_{unique_id}.csv"
-    attachment['Content-Disposition'] = 'attachment; filename="study_results.csv"'
+    filename = f"study_results_{st.session_state.prolific_pid}.csv"
+    attachment['Content-Disposition'] = f'attachment; filename="{filename}"'
     msg.attach(attachment)
     
     # Send email
