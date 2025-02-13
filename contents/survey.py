@@ -25,9 +25,9 @@ def survey_page_1():
         "2": "What is your gender?",
         "3": "What is your racial/ethnic category? (You can choose the closest one)",
         "4": "What is the highest degree or level of school you have completed? If currently enrolled, pick the highest degree you have received.",
-        "5": "Currently, what is your total annual household income?",
+        "5": "Currently, what is your total annual household income before taxes?",
         "6": "Are you a native English speaker?",
-        "7": "How will you rate your English proficiency on a 5-point scale? Here, 1 means elementary proficiency and 5 means full-bilingual proficiency."
+        "7": "How will you rate your English proficiency on a 5-point scale?"
     }
 
     response = {}
