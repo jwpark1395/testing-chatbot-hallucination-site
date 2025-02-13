@@ -33,7 +33,7 @@ def interaction_intro():
     st.write("""
     Now, you will interact with AI chatbot. 
     You will ask the chatbot some questions and it will respond. 
-    Please read the instructions below carefully
+    Please read the instructions below carefully.
 
     >
     > 1. On the next page, you will see a list of questions. **__Select__** one question to ask the chatbot.
