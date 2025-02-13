@@ -67,7 +67,7 @@ def interaction_page():
         st.session_state.cfd = "None"
 
     # Instructions
-    st.write("### :blue[Intructions]")
+    st.write("### :blue[Instructions]")
     st.markdown(f"""
     **:blue[1. Choose a question from the list below, then click submit.]**  
     **:blue[2. The question will appear in the chat box.]**  
