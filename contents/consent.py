@@ -31,7 +31,7 @@ A total of 1,800 individuals aged 18 or older will take part in this study.
 ### **3. How will the study proceed?**
 
 Once you review these instructions and agree to participate, the study will proceed as follows:
-1)	First, we will ask you some questions about yourself (age, gender, race, education, income etc) and your general views on AI.
+1)	First, we will ask you some questions about yourself (age, gender, race, education, income, etc.) and your general views on AI.
 2)	Next, you’ll participate in a brief Q&A session with a generative AI chatbot.
 3)	Afterward, you will answer some questions about your experience with the chatbot. 
 You can participate from any location where you feel comfortable and able to focus, but please access the study using a PC rather than a smartphone. 
@@ -62,7 +62,7 @@ Our principal investigator, Professor Eun-Ju Lee (+82-2-880-6469) at Seoul Natio
 
 ### **10. How much will participants be paid?**
 
-You will be paid approximately $2.70 (rate: $8 per hour) for completing the study. 
+You will be paid approximately $2.70 (rate: $8.00 per hour) for completing the study. 
 
 ### **11. If I have any questions about the study, whom can I contact?**
 
