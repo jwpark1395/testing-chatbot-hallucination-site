@@ -11,7 +11,7 @@ The study will begin only after you agree to participate. Participation is compl
 """
     st.write(text)
 def consent_page():
-    st.title("Instruction and Consent for a Research Participant")
+    st.title("Instructions and Consent Form for Research Participants")
     
     consent_text = """
 > **Title of study: User perceptions of generative AI chatbots**
