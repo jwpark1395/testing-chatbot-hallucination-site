@@ -144,7 +144,7 @@ def interaction_page():
                 for char in ai_response_text:
                     displayed_text += char
                     message_container.markdown(displayed_text + "</div>", unsafe_allow_html=True)
-                    time.sleep(0.05)
+                    time.sleep(0.02)
                 
                 typed_response = ai_response_text
                 
