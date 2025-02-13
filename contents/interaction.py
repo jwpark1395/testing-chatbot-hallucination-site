@@ -36,12 +36,12 @@ def interaction_intro():
     Please read the instructions below carefully
 
     >
-    > 1. On the next page, you will see a list of questions. **_Select_** one question to ask the chatbot.
+    > 1. On the next page, you will see a list of questions. **__Select__** one question to ask the chatbot.
     > 2. Carefully review the chatbot's answer.
     > 3. Rate the accuracy of the answer. 
     >
 
-    You will ask the chatbot a total of 13 different questions. Click **_Next_** if you are ready to begin.
+    You will ask the chatbot a total of 13 different questions. Click **__Next__** if you are ready to begin.
 
     """)
 
