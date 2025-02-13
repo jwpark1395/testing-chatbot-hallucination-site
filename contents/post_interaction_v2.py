@@ -37,7 +37,7 @@ def post_page_1():
 
 
     # Header
-    st.write("**C2. In your opinion, how well does each of the following words describe this chatbot?**")
+    st.write("**P1. In your opinion, how well does each of the following words describe this chatbot?**")
 
     # Render questions with select sliders
     if "rquestions_1" not in st.session_state:
@@ -120,7 +120,7 @@ def post_page_2():
 
 
     # Header
-    st.write("**C3. To what extent do you agree with the following statements?**")
+    st.write("**P2. To what extent do you agree with the following statements?**")
 
     if "rquestions_2" not in st.session_state:
         st.session_state.rquestions_2 = random.sample(questions_2, len(questions_2))
@@ -145,7 +145,7 @@ def post_page_2():
     cache_response(response)
 
 def post_page_3():
-    question = "C4. In your opinion, how human-like is this chatbot?"
+    question = "P3. In your opinion, how human-like is this chatbot?"
     # st.write(f"> **{question}**")
     # response = st.slider(
     #     label=f"{question}",
@@ -193,7 +193,7 @@ def post_page_4():
 
 
     # Header
-    st.write("**To what extent do you agree with the following statements?**")
+    st.write("**P4. To what extent do you agree with the following statements?**")
 
     if "rquestions_4" not in st.session_state:
         st.session_state.rquestions_4 = random.sample(questions_4, len(questions_4))
