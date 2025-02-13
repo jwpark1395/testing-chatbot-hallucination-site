@@ -62,7 +62,7 @@ Our principal investigator, Professor Eun-Ju Lee (+82-2-880-6469) at Seoul Natio
 
 ### **10. How much will participants be paid?**
 
-You will be paid approximately $2.70 (rate: $8.00 per hour) for completing the study. 
+You will be paid approximately \$2.70 (rate: \$8.00 per hour) for completing the study. 
 
 ### **11. If I have any questions about the study, whom can I contact?**
 
