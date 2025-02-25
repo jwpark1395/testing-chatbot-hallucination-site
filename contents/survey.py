@@ -42,11 +42,10 @@ def survey_page_1():
 
 
     for i, (qkey, question) in enumerate(questions.items()):
+         st.write(f"> **{qkey}. {question}**")
         if qkey in select_responses.keys():
-            st.write(f"> **{qkey}. {question}**")
             response[question] = st.radio(f"**{question}**", [*select_responses[qkey]], key=f"select_{i}", label_visibility="collapsed", index=None)
         else:
-            st.write(f"> **{qkey}. {question}**")
             response[question] = st.text_input(f"**{question}**", key=f"text_{i}", label_visibility="collapsed", value=None)
     
     cache_response(response)
@@ -55,9 +54,7 @@ def survey_page_2():
     # Define the survey questions and Likert scale labels
     response = {val: None for val in questions_2}
 
-    slider_labels = [
-        "1 \n (Not at all)", "2", "3", "4", "5", "6", "7 (Very well)"
-    ]
+    slider_labels = ["1", "2", "3", "4", "5", "6", "7"]
 
     # Shuffle the list once and store it in session state
     if "shuffled_questions_survey_page_2" not in st.session_state:
@@ -75,13 +72,36 @@ def survey_page_2():
 
     for question in questions:
         st.write(f"> **{question}**")
-        selected_value = st.pills(
-            label=question,  # Hidden label for accessibility
-            options=slider_labels,  # Custom labels
-            default=None,  # Default to neutral 
-            key=f"slider_{question}",
-            label_visibility="collapsed"
+        # (원하는 경우 아래 CSS를 통해 컬럼 폭 관련 속성을 조정할 수 있음)
+        st.markdown(
+            """
+            <style>
+            [data-testid="stHorizontalBlock"] > div {
+                flex: 1 0 auto !important;
+            }
+            .stButtonGroup {
+                display: flex;
+                justify-content:center;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
         )
+        
+        # 3개의 컬럼: 좌측 레이블, 중앙 버튼, 우측 레이블
+        col_left, col_mid, col_right = st.columns(3)
+        with col_left:
+            st.markdown('<div style="margin: 0; text-align:right;">Not at all</div>', unsafe_allow_html=True)
+        with col_mid:
+            selected_value = st.pills(
+                label=question,
+                options=slider_labels,
+                default=None,
+                key=f"slider_{question}",
+                label_visibility="collapsed"
+            )
+        with col_right:
+            st.markdown('<div style="margin: 0; text-align:left;">Very Well</div>', unsafe_allow_html=True)
 
         # Update session state
         if selected_value is not None:
@@ -97,10 +117,7 @@ def survey_page_3():
     # Define the survey questions and Likert scale labels
     response = {val: None for val in questions_3}
 
-    slider_labels = [
-        "1 (Not at all)", "2", "3", "4", "5", "6", "7 (Very well)"
-    ]
-
+    slider_labels = ["1", "2", "3", "4", "5", "6", "7"]
 
     # Shuffle the list once and store it in session state
     if "shuffled_questions_survey_page_3" not in st.session_state:
@@ -112,19 +129,39 @@ def survey_page_3():
 
     # Header
     st.write("**9. In your opinion, how well does each of the following words describe artificial intelligence (AI)?**")
+    st.markdown(
+            """
+            <style>
+            [data-testid="stHorizontalBlock"] > div {
+                flex: 1 0 auto !important;
+            }
+            .stButtonGroup {
+                display: flex;
+                justify-content:center;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
 
     # Render questions with select sliders
 
 
     for question in questions:
-        st.write(f"> {question}")
-        selected_value = st.pills(
-            label=f"{question}",  # Hidden label for accessibility
-            options=slider_labels,  # Custom labels
-            default=None,  # Default to neutral 
-            key=f"slider_{question}",
-            label_visibility="collapsed"
-        )
+        st.write(f"> **{question}**")
+        col_left, col_mid, col_right = st.columns(3)
+        with col_left:
+            st.markdown('<p style="margin: 0; text-align:right;">Not at all</p>', unsafe_allow_html=True)
+        with col_mid:
+            selected_value = st.pills(
+                label=question,
+                options=slider_labels,
+                default=None,
+                key=f"slider_{question}",
+                label_visibility="collapsed"
+            )
+        with col_right:
+            st.markdown('<p style="margin: 0; text-align:left;">Very well</p>', unsafe_allow_html=True)
 
         # Update session state
 
