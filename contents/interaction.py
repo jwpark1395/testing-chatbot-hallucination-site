@@ -44,6 +44,13 @@ def interaction_intro():
     You will ask the chatbot a total of 13 different questions. Click **__Next__** if you are ready to begin.
 
     """)
+    st.markdown("""
+        <style>
+            strong strong {
+                text-decoration: underline;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
 def type_effect(text, container, speed=0.03):
     """Helper function to create typing effect"""

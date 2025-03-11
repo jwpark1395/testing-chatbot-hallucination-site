@@ -32,9 +32,8 @@ def post_page_1():
     response = {val: None for val in questions_1}
 
     slider_labels = [
-        "1 (Not at all)", "2", "3", "4", "5", "6", "7 (Very well)"
+        "(Not at all)", "1", "2", "3", "4", "5", "6", "7", "(Very well)"
     ]
-
 
     # Header
     st.write("**P1. In your opinion, how well does each of the following words describe this chatbot?**")
@@ -43,6 +42,26 @@ def post_page_1():
     if "rquestions_1" not in st.session_state:
         st.session_state.rquestions_1 = random.sample(questions_1, len(questions_1))
     rquestions_1 = st.session_state.rquestions_1
+
+    st.markdown("""
+        <style>
+            button[kind="pills"]:first-child,
+            button[kind="pills"]:last-child,
+            button[kind="pills"]:focus:first-child,
+            button[kind="pills"]:focus:last-child,
+            button[kind="pillsActive"]:first-child,
+            button[kind="pillsActive"]:last-child,
+            button[kind="pillsActive"]:focus:first-child,
+            button[kind="pillsActive"]:focus:last-child
+            {
+                color: inherit;
+                background: #fff;
+                border: none;
+                box-shadow: none;
+                pointer-events: none;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
     for question in rquestions_1:
         st.write(f"> {question}")
@@ -67,7 +86,7 @@ def post_page_2():
     response = {val: None for val in questions_2}
 
     slider_labels = [
-        "1 (Not at all)", "2", "3", "4", "5", "6", "7 (Very well)"
+        "(Not at all)", "1", "2", "3", "4", "5", "6", "7", "(Very well)"
     ]
 
 
@@ -77,6 +96,26 @@ def post_page_2():
     if "rquestions_2" not in st.session_state:
         st.session_state.rquestions_2 = random.sample(questions_2, len(questions_2))
     rquestions_2 = st.session_state.rquestions_2
+
+    st.markdown("""
+        <style>
+            button[kind="pills"]:first-child,
+            button[kind="pills"]:last-child,
+            button[kind="pills"]:focus:first-child,
+            button[kind="pills"]:focus:last-child,
+            button[kind="pillsActive"]:first-child,
+            button[kind="pillsActive"]:last-child,
+            button[kind="pillsActive"]:focus:first-child,
+            button[kind="pillsActive"]:focus:last-child
+            {
+                color: inherit;
+                background: #fff;
+                border: none;
+                box-shadow: none;
+                pointer-events: none;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
     for question in rquestions_2:
         st.write(f"> {question}")
@@ -111,17 +150,17 @@ def post_page_3():
 
     # Placeholder to display the slider value
     slider_placeholder = st.empty()
-    col1, col2, col3 = st.columns([1, 7, 1])  # Adjust column widths for alignment
+    col1, col2 = st.columns([1, 1])  # Adjust column widths for alignment
     with col1:
         st.write("0 = Not at all human-like")
-    with col3:
-        st.write("100 = Extremely human-like")
+    with col2:
+        st.markdown("<p style='text-align: right;'>100 = Extremely human-like</p>", unsafe_allow_html=True)
     # Create a slider with no initial value displayed
     response = st.slider(
         "Choose a value:",
         min_value=0,
         max_value=100,
-        value=-1,  # Default value required by Streamlit
+        value=0,  # Default value required by Streamlit
         key="slider_key",
         label_visibility="collapsed"
     )
@@ -140,7 +179,7 @@ def post_page_4():
     response = {val: None for val in questions_4}
 
     slider_labels = [
-        "1 (Strongly disagree)", "2", "3", "4", "5", "6", "7 (Strongly agree)"
+        "(Strongly disagree)", "1 ", "2", "3", "4", "5", "6", "7", "(Strongly agree)"
     ]
 
 
@@ -150,6 +189,26 @@ def post_page_4():
     if "rquestions_4" not in st.session_state:
         st.session_state.rquestions_4 = random.sample(questions_4, len(questions_4))
     rquestions_4 = st.session_state.rquestions_4
+
+    st.markdown("""
+        <style>
+            button[kind="pills"]:first-child,
+            button[kind="pills"]:last-child,
+            button[kind="pills"]:focus:first-child,
+            button[kind="pills"]:focus:last-child,
+            button[kind="pillsActive"]:first-child,
+            button[kind="pillsActive"]:last-child,
+            button[kind="pillsActive"]:focus:first-child,
+            button[kind="pillsActive"]:focus:last-child
+            {
+                color: inherit;
+                background: #fff;
+                border: none;
+                box-shadow: none;
+                pointer-events: none;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
     for question in rquestions_4:
         st.write(f"> {question}")
@@ -162,8 +221,7 @@ def post_page_4():
         )
 
         # Update session state
-
-        if selected_value is not None:
+        if selected_value is not None and "(" not in selected_value[0]:
             response[question] = selected_value[0]
         # else:
         #     st.warning("You must select one")

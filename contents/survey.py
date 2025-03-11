@@ -117,7 +117,7 @@ def survey_page_3():
     response = {val: None for val in questions_3}
 
     slider_labels = [
-        "1 (Not at all)", "2", "3", "4", "5", "6", "7 (Very well)"
+        "(Not at all)", "1", "2", "3", "4", "5", "6", "7", "(Very well)"
     ]
 
 
@@ -134,6 +134,25 @@ def survey_page_3():
 
     # Render questions with select sliders
 
+    st.markdown("""
+        <style>
+            button[kind="pills"]:first-child,
+            button[kind="pills"]:last-child,
+            button[kind="pills"]:focus:first-child,
+            button[kind="pills"]:focus:last-child,
+            button[kind="pillsActive"]:first-child,
+            button[kind="pillsActive"]:last-child,
+            button[kind="pillsActive"]:focus:first-child,
+            button[kind="pillsActive"]:focus:last-child
+            {
+                color: inherit;
+                background: #fff;
+                border: none;
+                box-shadow: none;
+                pointer-events: none;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
     for question in questions:
         st.write(f"> {question}")
@@ -147,7 +166,7 @@ def survey_page_3():
 
         # Update session state
 
-        if selected_value is not None:
+        if selected_value is not None and "(" not in selected_value[0]:
             response[question] = selected_value[0]
         # else:
             # st.warning("You must select one")
@@ -167,10 +186,31 @@ def survey_page_4():
     response = {}
 
     slider_labels = [
-        "1 (Not informed at all)", "2", "3", "4", "5", "6", "7 (Very well-informed)"
+        "(Not informed at all)", "1", "2", "3", "4", "5", "6", "7", "(Very well-informed)"
     ]
 
     st.write(f"> **10. {questions[0]}**")
+    
+    st.markdown("""
+        <style>
+            button[kind="pills"]:first-child,
+            button[kind="pills"]:last-child,
+            button[kind="pills"]:focus:first-child,
+            button[kind="pills"]:focus:last-child,
+            button[kind="pillsActive"]:first-child,
+            button[kind="pillsActive"]:last-child,
+            button[kind="pillsActive"]:focus:first-child,
+            button[kind="pillsActive"]:focus:last-child
+            {
+                color: inherit;
+                background: #fff;
+                border: none;
+                box-shadow: none;
+                pointer-events: none;
+            }
+        </style>
+    """, unsafe_allow_html=True)
+    
     selected_value = st.pills(
         label="10",  # Hidden label for accessibility
         options=slider_labels,  # Custom labels
@@ -178,7 +218,7 @@ def survey_page_4():
         key=f"slider_{questions[0]}",
         label_visibility="collapsed"
         )
-    if selected_value is not None:
+    if selected_value is not None and "(" not in selected_value[0]:
         response[questions[0]] = selected_value[0]
     # else:
         # st.warning("You must select one")
