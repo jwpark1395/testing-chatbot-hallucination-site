@@ -210,7 +210,7 @@ def survey_page_4():
             }
         </style>
     """, unsafe_allow_html=True)
-    
+
     selected_value = st.pills(
         label="10",  # Hidden label for accessibility
         options=slider_labels,  # Custom labels
@@ -228,7 +228,6 @@ def survey_page_4():
     response[questions[1]] = st.radio(f"11. **{questions[1]}**", options_11, key="select_11", label_visibility="collapsed", index=None)
 
     if response[questions[1]] in ["Used once or twice", "Use sometimes", "Use regularly"]:
-
 
         st.write(f"> **12. {questions[2]}**")
         # options_12 = ["For entertainment", "To find new information related to my hobbies or interests", "For work", "For education and self-development", "Other"]
