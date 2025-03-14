@@ -121,7 +121,7 @@ def interaction_page():
     Instructions = st.container(height=200, border=False, key="intro")
     Instructions.write("### Instructions")
     Instructions.markdown(f"""
-    **1. Choose a question from the list below, then click submit.**  
+    **1. Choose a question from the list below.**  
     **2. The question will appear in the chat box.**  
     **3. Click the arrow button to see the chatbot's response.**  
     **If you want to change your question, you can select a new one from the list and\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then click the arrow.**  
