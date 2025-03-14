@@ -136,7 +136,7 @@ def post_page_2():
     cache_response(response)
 
 def post_page_3():
-    question = "P3. In your opinion, how human-like is this chatbot?"
+    question = "P3. In your opinion, how human-like is this chatbot? Drag the slider to your desired score."
     st.write(f"> **{question}**")
     # response = st.slider(
     #     label=f"{question}",
