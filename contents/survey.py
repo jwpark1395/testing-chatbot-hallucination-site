@@ -57,14 +57,6 @@ def survey_page_1():
         else:
             st.write(f"> **{qkey}. {question}**")
             response[question] = st.text_input(f"**{question}**", key=f"text_{i}", label_visibility="collapsed", value=None)
-
-    ##for i, (qkey, question) in enumerate(questions.items()):
-        ##if qkey in select_responses.keys():
-            ##st.write(f"> **{qkey}. {question}**")
-            ##response[question] = st.radio(f"**{question}**", [*select_responses[qkey]], key=f"select_{i}", label_visibility="collapsed", index=None)
-        ##else:
-            ##st.write(f"> **{qkey}. {question}**")
-            ##response[question] = st.text_input(f"**{question}**", key=f"text_{i}", label_visibility="collapsed", value=None)
     
     cache_response(response)
 
