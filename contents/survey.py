@@ -40,14 +40,31 @@ def survey_page_1():
                  "6": ["Yes", "No"],
                  "7": ["1 (Elementary proficiency)", "2 (Limited working proficiency)", "3 (Professional working proficiency)", "4 (Full professional proficiency)", "5 (Full bilingual proficiency)"]}
 
-
     for i, (qkey, question) in enumerate(questions.items()):
-        if qkey in select_responses.keys():
+        if qkey == "6":
             st.write(f"> **{qkey}. {question}**")
-            response[question] = st.radio(f"**{question}**", [*select_responses[qkey]], key=f"select_{i}", label_visibility="collapsed", index=None)
+            response[question] = st.radio(f"**{question}**", select_responses[qkey], key=f"select_{i}", label_visibility="collapsed", index=None)
+
+        elif qkey == "7":
+            if response.get(questions["6"]) == "Yes":
+                st.write(f"> **{qkey}. {question}**")
+                response[question] = st.radio(f"**{question}**", select_responses[qkey], key=f"select_{i}", label_visibility="collapsed", index=None)
+
+        elif qkey in select_responses.keys():
+            st.write(f"> **{qkey}. {question}**")
+            response[question] = st.radio(f"**{question}**", select_responses[qkey], key=f"select_{i}", label_visibility="collapsed", index=None)
+
         else:
             st.write(f"> **{qkey}. {question}**")
             response[question] = st.text_input(f"**{question}**", key=f"text_{i}", label_visibility="collapsed", value=None)
+
+    ##for i, (qkey, question) in enumerate(questions.items()):
+        ##if qkey in select_responses.keys():
+            ##st.write(f"> **{qkey}. {question}**")
+            ##response[question] = st.radio(f"**{question}**", [*select_responses[qkey]], key=f"select_{i}", label_visibility="collapsed", index=None)
+        ##else:
+            ##st.write(f"> **{qkey}. {question}**")
+            ##response[question] = st.text_input(f"**{question}**", key=f"text_{i}", label_visibility="collapsed", value=None)
     
     cache_response(response)
 
