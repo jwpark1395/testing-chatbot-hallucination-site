@@ -223,7 +223,7 @@ def survey_page_4():
     # else:
         # st.warning("You must select one")
 
-    options_11 = ["Never", "Used once or twice", "Use sometimes", "Use regularly"]
+    options_11 = ["Never", "Once or Twice", "Sometimes", "Regularly"]
     st.write(f"> **11. {questions[1]}**")
     response[questions[1]] = st.radio(f"11. **{questions[1]}**", options_11, key="select_11", label_visibility="collapsed", index=None)
 
