@@ -227,7 +227,7 @@ def survey_page_4():
     st.write(f"> **11. {questions[1]}**")
     response[questions[1]] = st.radio(f"11. **{questions[1]}**", options_11, key="select_11", label_visibility="collapsed", index=None)
 
-    if response[questions[1]] in ["Used once or twice", "Use sometimes", "Use regularly"]:
+    if response[questions[1]] in ["Once or Twice", "Sometimes", "Regularly"]:
 
         st.write(f"> **12. {questions[2]}**")
         # options_12 = ["For entertainment", "To find new information related to my hobbies or interests", "For work", "For education and self-development", "Other"]
