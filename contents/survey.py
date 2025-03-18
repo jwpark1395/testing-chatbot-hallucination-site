@@ -49,6 +49,8 @@ def survey_page_1():
             if response.get(questions["6"]) == "No":
                 st.write(f"> **{qkey}. {question}**")
                 response[question] = st.radio(f"**{question}**", select_responses[qkey], key=f"select_{i}", label_visibility="collapsed", index=None)
+            else:
+                response[question] = "N/A"  # Automatically store "N/A" if Q6 is "Yes"
 
         elif qkey in select_responses.keys():
             st.write(f"> **{qkey}. {question}**")
