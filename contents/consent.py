@@ -34,7 +34,7 @@ Once you review these instructions and agree to participate, the study will proc
 1)	First, we will ask you some questions about yourself (age, gender, race, education, income, etc.) and your general views on AI.
 2)	Next, you’ll participate in a brief Q&A session with a generative AI chatbot.
 3)	Afterward, you will answer some questions about your experience with the chatbot. 
-You can participate from any location where you feel comfortable and able to focus, but please access the study using a PC rather than a smartphone. 
+You can participate from any location where you feel comfortable and able to focus, but please access the study using a **PC** rather than a smartphone. 
 
 ### **4. How long will the study take?**
 
