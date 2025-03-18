@@ -32,13 +32,13 @@ def select_random_condition():
 
 def interaction_intro():
     st.write("""
-    Now, you will interact with AI chatbot. 
+    Now, you will interact with an AI chatbot. 
     You will ask the chatbot some questions and it will respond. 
     Please read the instructions below carefully.
 
     >
     > 1. On the next page, you will see a list of questions. **__Select__** one question to ask the chatbot.
-    > 2. Carefully review the chatbot's answer.
+    > 2. Carefully review the chatbot's answer and its confidence level.
     > 3. Rate the accuracy of the answer. 
     >
 
@@ -232,7 +232,7 @@ def interaction_page():
                         user-select: none;
                         pointer-events: none;
                     ">
-                    Select one of the questions from the left
+                    Select one of the questions from the left and click the arrow
                     </div>
                 """, unsafe_allow_html=True)
                 
