@@ -102,18 +102,30 @@ def interaction_page():
             .st-emotion-cache-t1wise > div > div {
                 height: 100vh;
             }
+            div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-intro) {
+                height: 150px;
+            }
+            div:has(> .st-key-intro) {
+                height: 100%;
+            }
             .st-key-intro {
-                width: 580px;
+                width: 40vw;
                 background: #0068c9;
-                padding: 0 10px 10px;
+                padding: 5px 10px 5px;
                 border-radius: 10px;
+            }
+            .st-key-intro h3 {
+                padding: 0px 0 5px;
             }
             .st-key-intro h3,
             .st-key-intro p {
                 color: #fff;
             }
             .st-key-intro p strong:last-child {
-                padding: 0 0 0 16px;
+                display: block;
+                margin: 10px 0 0 0;
+                font-size: 13px;
+                padding: 0 0 0 8px;
                 text-indent: 10px;
             }
         </style>
@@ -121,10 +133,10 @@ def interaction_page():
     Instructions = st.container(height=200, border=False, key="intro")
     Instructions.write("### Instructions")
     Instructions.markdown(f"""
-    **1. Choose a question from the list below.**  
+    **1. Choose a question from the list below, then click submit.**  
     **2. The question will appear in the chat box.**  
     **3. Click the arrow button to see the chatbot's response.**  
-    **If you want to change your question, you can select a new one from the list and\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then click the arrow.**  
+    **<If you want to change your question, you can select a new one from the list and then click the arrow.>**  
     """)
 
     # Layout with two columns
@@ -133,7 +145,7 @@ def interaction_page():
     st.markdown("""
         <style>
             div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-q_list) {
-                height: calc(100vh - 360px);
+                height: calc(100vh - 300px);
                 background: #f4f4f4;
                 border-radius: 10px;
             }
@@ -178,7 +190,7 @@ def interaction_page():
         st.markdown("""
             <style>
                 div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-chat_box) {
-                    height: calc(100vh - 560px);
+                    height: calc(100vh - 500px);
                 }
                 div:has(> .st-key-chat_box) {
                     height: 100%;
