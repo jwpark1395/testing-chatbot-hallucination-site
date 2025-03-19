@@ -103,7 +103,7 @@ def interaction_page():
                 height: 100vh;
             }
             div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-intro) {
-                height: 160px;
+                height: 150px;
             }
             div:has(> .st-key-intro) {
                 height: 100%;
@@ -124,7 +124,7 @@ def interaction_page():
             }
             .st-key-intro p strong:last-child {
                 display: block;
-                margin: 10px 0 0 0;
+                margin: 0 0 0 0;
                 font-size: 13px;
                 padding: 0 0 0 8px;
                 text-indent: 10px;
@@ -236,7 +236,7 @@ def interaction_page():
                     <div class="float_message" style="
                         position: fixed;
                         top: 50%;
-                        left: 62.5%;
+                        left: 60%;
                         padding: 5px 10px;
                         color: #243686;
                         font-weight: 700;
