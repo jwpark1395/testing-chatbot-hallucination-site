@@ -103,7 +103,7 @@ def interaction_page():
                 height: 100vh;
             }
             div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-intro) {
-                height: 150px;
+                height: 160px;
             }
             div:has(> .st-key-intro) {
                 height: 100%;
@@ -145,7 +145,7 @@ def interaction_page():
     st.markdown("""
         <style>
             div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-q_list) {
-                height: calc(100vh - 300px);
+                height: calc(100vh - 310px);
                 background: #f4f4f4;
                 border-radius: 10px;
             }
@@ -190,7 +190,7 @@ def interaction_page():
         st.markdown("""
             <style>
                 div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-chat_box) {
-                    height: calc(100vh - 500px);
+                    height: calc(100vh - 510px);
                 }
                 div:has(> .st-key-chat_box) {
                     height: 100%;
