@@ -368,8 +368,9 @@ def interaction_page():
                     <style>
                         div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-opinion) {
                             width: 550px;
-                            height: 220px;
+                            height: 150px;
                             margin: auto auto 0;
+                            padding: 10px;
                             border: 2px solid #243686;
                             border-radius: 30px;
                         }
