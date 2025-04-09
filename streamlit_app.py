@@ -36,7 +36,7 @@ if "agree" not in st.session_state:
 # Initialize confidence conditions
 if "confidence_conditions" not in st.session_state:
     # Create a list of 10 repetitions of each condition
-    base_conditions = [0, 1, 2, 3, 4, 6, 7, 8] * 10
+    base_conditions = [0, 1, 2, 3, 4, 5, 6, 7, 8] * 10
     random.shuffle(base_conditions)
     st.session_state.confidence_conditions = base_conditions
     st.session_state.assigned_conditions = {}  # Dictionary to store PID -> condition mappings
