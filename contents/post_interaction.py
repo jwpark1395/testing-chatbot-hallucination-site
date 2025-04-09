@@ -273,7 +273,7 @@ def save_results():
 
 
     # Call the function to send email
-    send_results_email(data_to_save, "jwp14812@snu.ac.kr")
+    send_results_email(data_to_save, "snucommai@gmail.com")
     # send_results_email(data_to_save, "sungwonhwang95@gmail.com")
 
 
