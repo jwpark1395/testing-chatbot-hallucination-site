@@ -86,6 +86,7 @@ def interaction_page():
         st.session_state.cfd = "None"
 
     # Instructions
+    # Instructions (updated to make the box smaller)
     st.markdown("""
         <style>
             .stHorizontalBlock > div:first-child {
@@ -103,20 +104,23 @@ def interaction_page():
                 height: 100vh;
             }
             div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-intro) {
-                height: 150px;
+                height: 120px;
             }
             div:has(> .st-key-intro) {
                 height: 100%;
             }
+
             .st-key-intro {
-                width: 40vw;
-                min-width: 615px;
+                width: 28vw;
+                min-width: 300px;
                 background: #0068c9;
-                padding: 5px 10px 5px;
+                padding: 6px 12px;
                 border-radius: 10px;
+                font-size: 14px;
             }
             .st-key-intro h3 {
                 padding: 0px 0 5px;
+                font-size: 18px;
             }
             .st-key-intro h3,
             .st-key-intro p {
@@ -124,9 +128,9 @@ def interaction_page():
             }
             .st-key-intro p strong:last-child {
                 display: block;
-                margin: 0 0 0 0;
-                font-size: 13px;
-                padding: 0 0 0 8px;
+                margin: 0;
+                font-size: 12px;
+                padding-left: 8px;
                 text-indent: 10px;
             }
         </style>
