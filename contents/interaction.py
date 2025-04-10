@@ -191,7 +191,7 @@ def interaction_page():
         st.markdown("""
             <style>
                 div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-chat_box) {
-                    height: calc(100vh - 470px);
+                    height: calc(100vh - 510px);
                 }
                 div:has(> .st-key-chat_box) {
                     height: 100%;
@@ -341,7 +341,7 @@ def interaction_page():
                             border-radius: 10px; 
                             color: black; 
                             width: fit-content; 
-                            font-size: 17px;
+                            font-size: 16px;
                             margin-bottom: 5px;
                             font-weight: bold;">
                             <span>{st.session_state.cfd}</span>
@@ -443,7 +443,7 @@ def interaction_page():
         st.markdown("""
             <style>
                 div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-chattext) {
-                    height: 50px;
+                    height: 90px;
                     margin: 0 40px -25px;
                     padding: 5px;
                     border-radius: 10px;
