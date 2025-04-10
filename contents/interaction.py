@@ -210,14 +210,14 @@ def interaction_page():
                 .st-key-intro p strong:last-child {
                     display: block;
                     margin: 0 0 0 0;
-                    font-size: 14px;
+                    font-size: 13px;
                     padding: 0 0 0 8px;
                     text-indent: 10px;
                 }
             </style>
         """, unsafe_allow_html=True)
         Instructions = st.container(height=200, border=False, key="intro")
-        Instructions.write("### Instructions")
+        Instructions.write("#### Instructions")
         Instructions.markdown(f"""
         **1. Choose a question from the list below, then click submit.**  
         **2. The question will appear in the chat box.**  
