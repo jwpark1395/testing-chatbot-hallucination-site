@@ -244,7 +244,7 @@ def interaction_page():
     with col2:
         st.write("### Chat Box")
         
-        chat_container = st.container(height=420, border=False, key="chat_box")
+        chat_container = st.container(height=600, border=False, key="chat_box")
         st.markdown("""
             <style>
                 div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-chat_box) {
