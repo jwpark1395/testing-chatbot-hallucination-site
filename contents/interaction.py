@@ -194,9 +194,8 @@ def interaction_page():
                     height: 100%;
                 }
                 .st-key-intro {
-                    width: 30vw;
-                    min-width: 400px;
-                    max-width: 500px;
+                    width: 35vw;
+                    min-width: 615px;
                     background: #0068c9;
                     padding: 5px 10px 5px;
                     border-radius: 10px;
@@ -204,7 +203,7 @@ def interaction_page():
                 .st-key-intro h4 {
                     padding: 0px 0 5px;
                 }
-                .st-key-intro h,
+                .st-key-intro h4,
                 .st-key-intro p {
                     color: #fff;
                 }
