@@ -131,7 +131,15 @@ def interaction_page():
             }
         </style>
     """, unsafe_allow_html=True)
-   
+    Instructions = st.container(height=200, border=False, key="intro")
+    Instructions.write("### Instructions")
+    Instructions.markdown(f"""
+    **1. Choose a question from the list below, then click submit.**  
+    **2. The question will appear in the chat box.**  
+    **3. Click the arrow button to see the chatbot's response.**  
+    **<If you want to change your question, you can select a new one from the list and then click the arrow.>**  
+    """)
+
     # Layout with two columns
     col1, col2 = st.columns([1, 1.2])
     
@@ -162,18 +170,6 @@ def interaction_page():
     
     # Left column: Question list with auto-paste feature
     with col1:
-        # 🧠 Moved: Instruction box now in left column
-        Instructions = st.container(border=False, key="intro")
-        Instructions.markdown("""
-            <div class="st-key-intro" style="background: #0068c9; padding: 10px; border-radius: 10px; color: white;">
-                <h3>Instructions</h3>
-                <p><strong>1.</strong> Choose a question from the list below and click submit.<br>
-                   <strong>2.</strong> The question will appear in the chat box.<br>
-                   <strong>3.</strong> Click the arrow to see the chatbot's response.<br>
-                   <strong>4.</strong> Rate the accuracy of the response.</p>
-            </div>
-        """, unsafe_allow_html=True)
-
         st .write("### Question List")
         container = st.container(height=600, border=False, key="q_list")
         selected_question = container.radio(
