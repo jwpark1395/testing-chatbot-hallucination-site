@@ -200,10 +200,10 @@ def interaction_page():
                     padding: 5px 10px 5px;
                     border-radius: 10px;
                 }
-                .st-key-intro h3 {
+                .st-key-intro h4 {
                     padding: 0px 0 5px;
                 }
-                .st-key-intro h3,
+                .st-key-intro h4,
                 .st-key-intro p {
                     color: #fff;
                 }
