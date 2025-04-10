@@ -187,14 +187,15 @@ def interaction_page():
                 .st-emotion-cache-t1wise > div > div {
                     height: 100vh;
                 }
-                div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-intro) {
-                    height: 150px;
+                #div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-intro) {
+                    #height: 150px;
                 }
                 div:has(> .st-key-intro) {
                     height: 100%;
                 }
                 .st-key-intro {
-                    width: 400px;
+                    width: 500px;
+                    height: 150px;
                     #min-width: 300px;
                     background: #0068c9;
                     padding: 5px 10px 5px;
