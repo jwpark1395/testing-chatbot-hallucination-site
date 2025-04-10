@@ -188,7 +188,7 @@ def interaction_page():
                     height: 100vh;
                 }
                 div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-intro) {
-                    height: 100px;
+                    height: 150px;
                 }
                 div:has(> .st-key-intro) {
                     height: 100%;
