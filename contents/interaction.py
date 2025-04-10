@@ -194,11 +194,14 @@ def interaction_page():
                     height: 100%;
                 }
                 .st-key-intro {
-                    width: 30vw;
-                    min-width: 550px;
+                    width: 35vw;
+                    min-width: 380px;
+                    max-width: 450px;
                     background: #0068c9;
                     padding: 5px 10px 5px;
                     border-radius: 10px;
+                    font-size: 13px;
+                    line-height: 1.4;
                 }
                 .st-key-intro h4 {
                     padding: 0px 0 5px;
@@ -210,7 +213,7 @@ def interaction_page():
                 .st-key-intro p strong:last-child {
                     display: block;
                     margin: 0 0 0 0;
-                    font-size: 13px;
+                    font-size: 12px;
                     padding: 0 0 0 8px;
                     text-indent: 10px;
                 }
