@@ -236,7 +236,7 @@ def interaction_page():
                     <div class="float_message" style="
                         position: fixed;
                         top: 50%;
-                        left: 50%;
+                        left: 60%;
                         padding: 5px 10px;
                         color: #243686;
                         font-weight: 700;
