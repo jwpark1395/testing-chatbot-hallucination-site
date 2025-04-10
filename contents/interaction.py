@@ -248,7 +248,7 @@ def interaction_page():
         st.markdown("""
             <style>
                 div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-chat_box) {
-                    height: calc(100vh - 440px);
+                    height: calc(100vh - 300px);
                 }
                 div:has(> .st-key-chat_box) {
                     height: 100%;
