@@ -17,7 +17,7 @@ def select_random_condition():
                   4: 1 * ["40%"] + 11 * ["60%"] + 1 * ["80%"],
                   5: 4 * ["quite"] + 5 * ["highly"] + 4 * ["extremely"],
                   6: 1 * ["quite"] + 11 * ["highly"] + 1 * ["extremely"],
-                  7: 4 * ["fairly"] + 5 * ["quite"] + 4 * ["highly"],
+                  7: 1 * ["fairly"] + 11 * ["quite"] + 1 * ["highly"],
                   8: 1 * ["fairly"] + 11 * ["quite"] + 1 * ["highly"],
                   }
     idx = random.randint(0, 8)
