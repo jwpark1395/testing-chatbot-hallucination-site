@@ -195,7 +195,7 @@ def interaction_page():
                 }
                 .st-key-intro {
                     width: 30vw;
-                    min-width: 500px;
+                    min-width: 550px;
                     background: #0068c9;
                     padding: 5px 10px 5px;
                     border-radius: 10px;
