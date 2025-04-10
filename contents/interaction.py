@@ -200,7 +200,7 @@ def interaction_page():
                     background: #0068c9;
                     padding: 5px 10px 5px;
                     border-radius: 10px;
-                    font-size: 13px;
+                    font-size: 11px;
                     line-height: 1.4;
                 }
                 .st-key-intro h4 {
