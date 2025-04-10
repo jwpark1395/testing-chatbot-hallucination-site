@@ -169,22 +169,7 @@ def interaction_page():
     """, unsafe_allow_html=True)
     
     # Left column: Question list with auto-paste feature
-    with col1:
-         st.markdown("""
-            <div class="st-key-intro" style="
-                background: #0068c9;
-                padding: 10px 15px;
-                border-radius: 10px;
-                color: white;
-                margin-bottom: 20px;">
-                <h3>Instructions</h3>
-                <p><strong>1.</strong> Choose a question from the list below and click submit.<br>
-                   <strong>2.</strong> The question will appear in the chat box.<br>
-                   <strong>3.</strong> Click the arrow to see the chatbot's response.<br>
-                   <strong>4.</strong> Rate the accuracy of the response.</p>
-            </div>
-        """, unsafe_allow_html=True)
-        
+    with col1:    
         st .write("### Question List")
         container = st.container(height=600, border=False, key="q_list")
         selected_question = container.radio(
