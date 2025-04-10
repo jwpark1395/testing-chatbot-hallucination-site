@@ -86,7 +86,6 @@ def interaction_page():
         st.session_state.cfd = "None"
 
     # Instructions
-    # Instructions (updated to make the box smaller)
     st.markdown("""
         <style>
             .stHorizontalBlock > div:first-child {
@@ -104,23 +103,20 @@ def interaction_page():
                 height: 100vh;
             }
             div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-intro) {
-                height: 120px;
+                height: 150px;
             }
             div:has(> .st-key-intro) {
                 height: 100%;
             }
-
             .st-key-intro {
-                width: 28vw;
-                min-width: 300px;
+                width: 40vw;
+                min-width: 615px;
                 background: #0068c9;
-                padding: 6px 12px;
+                padding: 5px 10px 5px;
                 border-radius: 10px;
-                font-size: 14px;
             }
             .st-key-intro h3 {
                 padding: 0px 0 5px;
-                font-size: 18px;
             }
             .st-key-intro h3,
             .st-key-intro p {
@@ -128,26 +124,22 @@ def interaction_page():
             }
             .st-key-intro p strong:last-child {
                 display: block;
-                margin: 0;
-                font-size: 12px;
-                padding-left: 8px;
+                margin: 0 0 0 0;
+                font-size: 13px;
+                padding: 0 0 0 8px;
                 text-indent: 10px;
             }
         </style>
     """, unsafe_allow_html=True)
     Instructions = st.container(height=200, border=False, key="intro")
     Instructions.write("### Instructions")
-    Instructions.markdown("""
-    <div style="font-size: 13px; line-height: 1.4; color: white;">
-        <strong>1.</strong> Choose a question from the list below, then click submit.<br>
-        <strong>2.</strong> The question will appear in the chat box.<br>
-        <strong>3.</strong> Click the arrow button to see the chatbot's response.<br>
-        <span style="font-size: 11px; color: #d0e4ff;">
-            &lt;If you want to change your question, you can select a new one from the list and then click the arrow.&gt;
-        </span>
-    </div>
-    """, unsafe_allow_html=True)
-    
+    Instructions.markdown(f"""
+    **1. Choose a question from the list below, then click submit.**  
+    **2. The question will appear in the chat box.**  
+    **3. Click the arrow button to see the chatbot's response.**  
+    **<If you want to change your question, you can select a new one from the list and then click the arrow.>**  
+    """)
+
     # Layout with two columns
     col1, col2 = st.columns([1, 1.2])
     
