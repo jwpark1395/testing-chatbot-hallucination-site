@@ -86,59 +86,59 @@ def interaction_page():
         st.session_state.cfd = "None"
 
     # Instructions
-    st.markdown("""
-        <style>
-            .stHorizontalBlock > div:first-child {
-                height: fit-content;
-                padding-right: 20px;
-                border-right: 1px solid #ccc;
-            }
-            .st-emotion-cache-t1wise {
-                height: 100vh;
-                padding-top: 0rem;
-                padding-bottom: 0rem;
-            }
-            .st-emotion-cache-t1wise > div,
-            .st-emotion-cache-t1wise > div > div {
-                height: 100vh;
-            }
-            div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-intro) {
-                height: 150px;
-            }
-            div:has(> .st-key-intro) {
-                height: 100%;
-            }
-            .st-key-intro {
-                width: 40vw;
-                min-width: 615px;
-                background: #0068c9;
-                padding: 5px 10px 5px;
-                border-radius: 10px;
-            }
-            .st-key-intro h3 {
-                padding: 0px 0 5px;
-            }
-            .st-key-intro h3,
-            .st-key-intro p {
-                color: #fff;
-            }
-            .st-key-intro p strong:last-child {
-                display: block;
-                margin: 0 0 0 0;
-                font-size: 13px;
-                padding: 0 0 0 8px;
-                text-indent: 10px;
-            }
-        </style>
-    """, unsafe_allow_html=True)
-    Instructions = st.container(height=200, border=False, key="intro")
-    Instructions.write("### Instructions")
-    Instructions.markdown(f"""
-    **1. Choose a question from the list below, then click submit.**  
-    **2. The question will appear in the chat box.**  
-    **3. Click the arrow button to see the chatbot's response.**  
-    **<If you want to change your question, you can select a new one from the list and then click the arrow.>**  
-    """)
+    #st.markdown("""
+       #<style>
+        #    .stHorizontalBlock > div:first-child {
+         #       height: fit-content;
+          #      padding-right: 20px;
+           #     border-right: 1px solid #ccc;
+            #}
+            #.st-emotion-cache-t1wise {
+             #   height: 100vh;
+              #  padding-top: 0rem;
+               # padding-bottom: 0rem;
+            #}
+            #.st-emotion-cache-t1wise > div,
+            #.st-emotion-cache-t1wise > div > div {
+             #   height: 100vh;
+            #}
+            #div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-intro) {
+             #   height: 150px;
+            #}
+            #div:has(> .st-key-intro) {
+             #   height: 100%;
+            #}
+       #     .st-key-intro {
+        #        width: 40vw;
+         #       min-width: 615px;
+          #      background: #0068c9;
+           #     padding: 5px 10px 5px;
+            #    border-radius: 10px;
+        #    }
+        #    .st-key-intro h3 {
+            #    padding: 0px 0 5px;
+        #    }
+         #   .st-key-intro h3,
+         #   .st-key-intro p {
+         #       color: #fff;
+       #     }
+        #    .st-key-intro p strong:last-child {
+         #       display: block;
+           #     margin: 0 0 0 0;
+         #       font-size: 13px;
+           #     padding: 0 0 0 8px;
+          #      text-indent: 10px;
+    #        }
+   #     </style>
+  #  """, unsafe_allow_html=True)
+  #  Instructions = st.container(height=200, border=False, key="intro")
+  #  Instructions.write("### Instructions")
+  #  Instructions.markdown(f"""
+   # **1. Choose a question from the list below, then click submit.**  
+   # **2. The question will appear in the chat box.**  
+    #**3. Click the arrow button to see the chatbot's response.**  
+    #**<If you want to change your question, you can select a new one from the list and then click the arrow.>**  
+    #""")
 
     # Layout with two columns
     col1, col2 = st.columns([1, 1.2])
@@ -170,6 +170,21 @@ def interaction_page():
     
     # Left column: Question list with auto-paste feature
     with col1:
+         st.markdown("""
+            <div class="st-key-intro" style="
+                background: #0068c9;
+                padding: 10px 15px;
+                border-radius: 10px;
+                color: white;
+                margin-bottom: 20px;">
+                <h3>Instructions</h3>
+                <p><strong>1.</strong> Choose a question from the list below and click submit.<br>
+                   <strong>2.</strong> The question will appear in the chat box.<br>
+                   <strong>3.</strong> Click the arrow to see the chatbot's response.<br>
+                   <strong>4.</strong> Rate the accuracy of the response.</p>
+            </div>
+        """, unsafe_allow_html=True)
+        
         st .write("### Question List")
         container = st.container(height=600, border=False, key="q_list")
         selected_question = container.radio(
