@@ -137,13 +137,17 @@ def interaction_page():
     """, unsafe_allow_html=True)
     Instructions = st.container(height=200, border=False, key="intro")
     Instructions.write("### Instructions")
-    Instructions.markdown(f"""
-    **1. Choose a question from the list below, then click submit.**  
-    **2. The question will appear in the chat box.**  
-    **3. Click the arrow button to see the chatbot's response.**  
-    **<If you want to change your question, you can select a new one from the list and then click the arrow.>**  
-    """)
-
+    Instructions.markdown("""
+    <div style="font-size: 13px; line-height: 1.4; color: white;">
+        <strong>1.</strong> Choose a question from the list below, then click submit.<br>
+        <strong>2.</strong> The question will appear in the chat box.<br>
+        <strong>3.</strong> Click the arrow button to see the chatbot's response.<br>
+        <span style="font-size: 11px; color: #d0e4ff;">
+            &lt;If you want to change your question, you can select a new one from the list and then click the arrow.&gt;
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
+    
     # Layout with two columns
     col1, col2 = st.columns([1, 1.2])
     
