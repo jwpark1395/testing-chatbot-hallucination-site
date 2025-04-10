@@ -486,6 +486,7 @@ def interaction_page():
                 key="input_box",
                 label_visibility="collapsed",
                 placeholder="Ask anything",
+                height=80
                 disabled=True
             )
 
