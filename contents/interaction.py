@@ -170,7 +170,7 @@ def interaction_page():
     
     # Left column: Question list with auto-paste feature
     with col1:
-         # Instructions
+        # Instructions
         st.markdown("""
            <style>
                 .stHorizontalBlock > div:first-child {
@@ -194,23 +194,24 @@ def interaction_page():
                     height: 100%;
                 }
                 .st-key-intro {
-                    width: 40vw;
-                    min-width: 615px;
+                    width: 30vw;
+                    min-width: 400px;
+                    max-width: 500px;
                     background: #0068c9;
                     padding: 5px 10px 5px;
                     border-radius: 10px;
                 }
-                .st-key-intro h3 {
+                .st-key-intro h4 {
                     padding: 0px 0 5px;
                 }
-                .st-key-intro h3,
+                .st-key-intro h,
                 .st-key-intro p {
                     color: #fff;
                 }
                 .st-key-intro p strong:last-child {
                     display: block;
                     margin: 0 0 0 0;
-                    font-size: 13px;
+                    font-size: 14px;
                     padding: 0 0 0 8px;
                     text-indent: 10px;
                 }
