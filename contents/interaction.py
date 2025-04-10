@@ -194,7 +194,7 @@ def interaction_page():
                     height: 100%;
                 }
                 .st-key-intro {
-                    width: 400px;
+                    width: 500px;
                     #min-width: 380px;
                     #max-width: 450px;
                     background: #0068c9;
