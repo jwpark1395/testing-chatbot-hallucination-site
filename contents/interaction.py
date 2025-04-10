@@ -191,7 +191,7 @@ def interaction_page():
         st.markdown("""
             <style>
                 div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > .st-key-chat_box) {
-                    height: calc(100vh - 470px);
+                    height: calc(100vh - 440px);
                 }
                 div:has(> .st-key-chat_box) {
                     height: 100%;
@@ -436,7 +436,7 @@ def interaction_page():
         
         # Interaction box below the chat window
         # if st.session_state.last_response is None:
-        st.markdown("""<hr style="margin: 20px 40px;">""", unsafe_allow_html=True)
+        st.markdown("""<hr style="margin: -10px 40px 0;">""", unsafe_allow_html=True)
         # st.write("### Type your question here")
         # st.write("*(select one of the questions from the left)*")
         chattext_container = st.container(border=False, key="chattext")
